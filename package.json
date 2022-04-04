@@ -1,5 +1,5 @@
 {
-  "name": "vue-mc-datamaps",
+  "name": "vue-mc360-datamaps",
   "version": "0.1.0",
   "main": "src/index.js",
   "files": [
@@ -19,7 +19,7 @@
   "author": "Zlatko, Vujicic <vujicic.zlatko@gmail.com> (https://github.com/zlajaa1)",
   "license": "MIT",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name vue-mc-datamaps src/index.js",
+    "build": "vue-cli-service build --target lib --name vue-mc360-datamaps src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
