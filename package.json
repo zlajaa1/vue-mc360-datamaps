@@ -1,31 +1,42 @@
 {
   "name": "vue-mc-datamaps",
   "version": "0.1.0",
-  "private": true,
+  "main": "src/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zlajaa1/vue-mc360-datamaps.git"
+  },
+  "keywords": [
+    "vue",
+    "datamaps",
+    "vue-datamaps"
+  ],
+  "homepage": "",
+  "author": "Zlatko, Vujicic <vujicic.zlatko@gmail.com> (https://github.com/zlajaa1)",
+  "license": "MIT",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name vue-mc-datamaps src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11",
-    "vue-router": "^3.2.0",
-    "vuex": "^3.4.0"
+    "d3v4": "^4.2.2",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.9",
-    "@vue/cli-plugin-eslint": "~4.5.9",
-    "@vue/cli-plugin-router": "~4.5.9",
-    "@vue/cli-plugin-vuex": "~4.5.9",
-    "@vue/cli-service": "~4.5.9",
-    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/cli-plugin-babel": "^4.5.8",
+    "@vue/cli-plugin-eslint": "^4.5.8",
+    "@vue/cli-service": "^4.5.8",
+    "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "json-minimizer-webpack-plugin": "^1.0.1",
+    "parallel-webpack": "^2.6.0",
+    "vue-template-compiler": "^2.6.12"
   }
 }
