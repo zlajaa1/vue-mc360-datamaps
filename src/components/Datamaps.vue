@@ -62,13 +62,7 @@
                 </div>
 
             </slot>
-            <slot name="hoverBubbleInfo" v-if="showHoverBubbleInfo">
-                <div class="hoverinfo">
-                    <strong>
-                        {{ popupText.title }}
-                    </strong>
-                </div>
-            </slot>
+            <slot name="hoverBubbleInfo" v-if="showHoverBubbleInfo"></slot>
             <slot name="hoverArcInfo" v-if="showHoverArcInfo">
                 <div class="hoverinfo">
                     <strong>{{ popupText.title }}</strong><br>
