@@ -18,12 +18,16 @@
             v-for="(item, index) in bubblesData"
             :key="`${index}-text`"
             fill="white"
+            style="cursor:pointer;"
+            @click="handleClickCallback($event, item, index)"
+            @mouseover="handleMouseOver($event, item, index)"
+            @mouseout="handleMouseOut(index)"
             :x="latLng(item)[0]"
             :y="latLng(item)[1]">
             {{ item.bubbleText }}
         </text>
         <rect
-            v-if="item.deviationText != 0"
+            v-show="item.deviationText != 0"
             :ref="`${name}-rectBox`"
             v-for="(item, index) in bubblesData"
             :key="`${index}-pill`"
@@ -31,7 +35,7 @@
             :y="latLng(item)[1]"
             width="38" height="14" fill="black" ry="7" rx="7"/>
         <circle
-            v-if="item.deviationText != 0"
+            v-show="item.deviationText != 0"
             :ref="`${name}-mark`"
             v-for="(item, index) in bubblesData"
             :key="`${index}-mark`"
@@ -42,7 +46,7 @@
             :r="5"
         ></circle>
         <text
-            v-if="item.deviationText != 0"
+            v-show="item.deviationText != 0"
             :ref="`${name}-text-pill`"
             v-for="(item, index) in bubblesData"
             :key="`${index}-text-pill`"
@@ -148,24 +152,24 @@ export default {
             }
             this.$set(this.previousAttributes, index, previousAttributes)
             const { highlightOnHover, popupOnHover, highlightFillColor, highlightBorderColor, highlightBorderWidth, highlightBorderOpacity, highlightFillOpacity } = this.options
-            if (highlightOnHover || popupOnHover) {
-                const data = {
-                    fill: val(datum.highlightFillColor, highlightFillColor, datum),
-                    stroke: val(datum.highlightBorderColor, highlightBorderColor, datum),
-                    strokeWidth: val(datum.highlightBorderWidth, highlightBorderWidth, datum),
-                    strokeOpacity: val(datum.highlightBorderOpacity, highlightBorderOpacity, datum),
-                    fillOpacity: val(datum.highlightFillOpacity, highlightFillOpacity, datum)
-                }
-                this.$set(this.styleAttributes, index, data)
-            }
+            // if (highlightOnHover || popupOnHover) {
+            //     const data = {
+            //         fill: val(datum.highlightFillColor, highlightFillColor, datum),
+            //         stroke: val(datum.highlightBorderColor, highlightBorderColor, datum),
+            //         strokeWidth: val(datum.highlightBorderWidth, highlightBorderWidth, datum),
+            //         strokeOpacity: val(datum.highlightBorderOpacity, highlightBorderOpacity, datum),
+            //         fillOpacity: val(datum.highlightFillOpacity, highlightFillOpacity, datum)
+            //     }
+            //     this.$set(this.styleAttributes, index, data)
+            // }
             if (popupOnHover) this.$emit('show:popup', { event, datum })
         },
         handleMouseOut (index) {
             const { highlightOnHover, popupOnHover } = this.options
-            if (highlightOnHover) {
-                const data = this.previousAttributes[index]
-                this.$set(this.styleAttributes, index, data)
-            }
+            // if (highlightOnHover) {
+            //     const data = this.previousAttributes[index]
+            //     this.$set(this.styleAttributes, index, data)
+            // }
             if (popupOnHover) this.$emit('hide:popup')
         },
         handleClickCallback (event, item, index) {
